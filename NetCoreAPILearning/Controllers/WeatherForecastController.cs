@@ -37,11 +37,20 @@ namespace NetCoreAPILearning.Controllers
             .ToArray();
         }
 
-        [HttpGet("{Id}")]
-        public IEnumerable<int> GetById(int Id)
+        [HttpGet]
+        [Route("{id}/{displayname}")]
+        public string GetById(int Id, string displayname)
         {
-            int[] myNum = { 10, 20, 30, 40 };
-            return myNum;
+            return Id.ToString() + displayname;
+            
+        }
+
+        [HttpGet]
+        [Route("search")]
+        public string Search([FromBody] WeatherForecast forecaseSearchRequest)
+        {
+            return "success";
+
         }
     }
 }

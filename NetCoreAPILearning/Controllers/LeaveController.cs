@@ -23,6 +23,16 @@ namespace NetCoreAPILearning.Controllers
         {
             return "Hello world1";
         }
+
+
+        [HttpGet]
+        [Route("lastmonthleaves")]
+        public string GetLasMonthLeaves()
+        {
+            return "Hello world1";
+        }
+
+
         [HttpPost]
         public string CreateLeave()
         {
