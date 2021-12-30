@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace NetCoreAPILearning.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("test")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -27,6 +27,7 @@ namespace NetCoreAPILearning.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("Retrieving the weather forecast");
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -45,9 +46,9 @@ namespace NetCoreAPILearning.Controllers
             
         }
 
-        [HttpGet]
-        [Route("search")]
-        public string Search([FromBody] WeatherForecast forecaseSearchRequest)
+        [HttpPost]
+        [Route("search/{id}")]
+        public string Search([FromQuery] string id, [FromBody]WeatherForecast forecaseSearchRequest)
         {
             return "success";
 

@@ -21,6 +21,8 @@ namespace NetCoreAPILearning
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    
                 });
+            
     }
 }
